@@ -1,11 +1,15 @@
 function renderBooks() {
   const booksWrapper = document.querySelector('.books')
+
+  const books = getBooks();
+  console.log(books)
+  booksWrapper.innerHTML =
     `<div class="book">
     <figure class="book__img--wrapper">
-      <img class="book__img" src="./assets/atomic habits.jpg" alt="">
+      <img class="book__img" src="${books[0].url}" alt="">
     </figure>
     <div class="book__title">
-      Atomic Habits
+      ${books[0].title}
     </div>
     <div class="book__ratings">
       <i class="fas fa-star"></i>
@@ -21,8 +25,10 @@ function renderBooks() {
 }
     
 
+setTimeout(() => {
+  renderBooks();
+});
 
-renderBooks();
 // FAKE DATA
 function getBooks() {
   return [
