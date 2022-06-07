@@ -19,7 +19,7 @@ function renderBooks() {
       <i class="fas fa-star-half-alt"></i>
     </div>
     <div class="book__price">
-      <span class="book__price--normal">$29.99</span> $10.99
+      <span class="book__price--normal">${books[0].originalPrice}</span> ${books[0].salePrice}
     </div>
   </div>`
 }
