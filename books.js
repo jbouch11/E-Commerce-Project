@@ -5,9 +5,10 @@ function renderBooks(filter) {
 
  
   if (filter === 'LOW_TO_HIGH') {
-    console.log(filter)
-    const filteredBooks = books.sort((a, b) => a.originalPrice - b.originalPrice);
-    console.log(filteredBooks)
+  books.sort((a, b) => a.originalPrice - b.originalPrice);
+  }
+  else if (filter === 'HIGH_TO_LOW') {
+    books.sort((a, b) => b.originalPrice - a.originalPrice);
   }
 
   const booksHtml = books
