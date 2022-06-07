@@ -1,4 +1,5 @@
 function renderBooks() {
+  const booksWrapper = document.querySelector('.books')
     `<div class="book">
     <figure class="book__img--wrapper">
       <img class="book__img" src="./assets/atomic habits.jpg" alt="">
