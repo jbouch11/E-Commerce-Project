@@ -14,9 +14,6 @@ function renderBooks(filter) {
     books.sort((a,b) => b.rating - a.rating);
   }
 
-
-
-
   const booksHtml = books
     .map((book) => {
    return `<div class="book">
@@ -30,7 +27,7 @@ function renderBooks(filter) {
       ${ratingsHTML(book.rating)}
     </div>
     <div class="book__price">
-      <span class=>$${book.originalPrice.toFixed(2)}</span>
+      ${priceHTML(book.originalPrice, book.salePrice)}
     </div>
   </div>`;
   })
@@ -39,6 +36,13 @@ function renderBooks(filter) {
 
   booksWrapper.innerHTML = booksHtml;
   }
+
+  function priceHTML(originalPrice, salePrice) {
+    if (!salePrice) {
+      return `$${originalPrice.toFixed(2)}`
+    }
+      return `<span class="book__price--normal">$${originalPrice.toFixed(2)}</span> $${salePrice.toFixed(2)}`
+    }
 
   function ratingsHTML(rating) {
     let ratingHTML = "";
@@ -142,7 +146,7 @@ function getBooks() {
       url: "assets/book-7.jpg",
       originalPrice: 40,
       salePrice: null,
-      rating: 4,
+      rating: 3.5,
     },
     {
       id: 11,
@@ -150,7 +154,7 @@ function getBooks() {
       url: "assets/book-8.jpeg",
       originalPrice: 30,
       salePrice: null,
-      rating: 4.5,
+      rating: 2,
     },
   ];
 }
